@@ -1,0 +1,22 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    align-items: center;
+    padding: 15px;
+}
+
+.navItems > ul {
+    display: flex;
+}
+
+.appName{
+    font-size: 23px;
+}
+
+/* .navItems > ul> Link > li {
+    list-style-type: none;
+    padding: 7px 20px;
+    cursor: pointer;
+} */
