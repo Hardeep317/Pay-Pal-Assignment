@@ -1,0 +1,27 @@
+.mainContainer{
+    width: 70%;
+    min-height: 60vh;
+    margin: auto;
+    border: 3px solid black;
+    padding: 25px;
+    margin-top: 5%;
+    background-color: rgb(137, 210, 220);
+}
+
+.heading{
+    font-size: 23px;
+    margin-bottom: 20px;
+    color: crimson;
+    font-weight: 700;
+}
+
+.stack{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.input{
+    border: 2px solid black;
+    margin-bottom: 20px;
+}

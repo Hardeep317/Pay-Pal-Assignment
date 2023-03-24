@@ -1,0 +1,65 @@
+.container{
+    display: flex;
+    width: 95%;
+    margin: auto;
+    justify-content: space-between;
+    /* align-items: center; */
+    border: 2px solid grey;
+    margin-top: 20px;
+    min-height: 60vh;
+    padding: 10px;
+    border-radius: 13px;
+}
+
+.bugContainer{
+    background-color: red;
+    color: white;
+    min-width: 30%;
+    border-radius: 13px;
+    padding: 13px;
+}
+
+.sprintContainer{
+    background-color: blue;
+    color: white;
+    min-width: 30%;
+    border-radius: 13px;
+    padding: 13px;
+}
+
+.storyContainer{
+    background-color: green;
+    color: white;
+    min-width: 30%;
+    border-radius: 13px;
+    padding: 13px;
+}
+
+.bugHead{
+    /* background-color: red;
+    color: white; */
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.sprintHead{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.storyHead{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+/* .editBtn {
+    font-size: 17px;
+    padding: 6px 10px;
+    border-radius: 9px;
+    background-color: aliceblue;
+    color: yellow;
+} */
+
+.indItem{
+    margin-bottom: 15px;
+}

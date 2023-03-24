@@ -17,7 +17,7 @@ function Navbar() {
         <Box className='navItems'><ul>
             <Link style={listStyle} to="/"><li>Home</li></Link>
             <Link style={listStyle} to="/add-sprint"><li>Add Sprint</li></Link>
-            <li style={listStyle}>Login</li>
+            <Link to="/login"><li style={listStyle}>Login</li></Link>
         </ul></Box>
     </Box>
   )

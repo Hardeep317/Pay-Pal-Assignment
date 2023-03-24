@@ -1,0 +1,66 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Sachin",
+      "LastName": "Tendulkar",
+      "age": 45
+    },
+    {
+      "id": 2,
+      "firstName": "Hardeep",
+      "LastName": "Siwach",
+      "age": 45
+    },
+    {
+      "name": "Hardeep ",
+      "email": "Siwach@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "name": "Hardeep ",
+      "email": "Siwach1@gmail.com",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "name": "Hardeep ",
+      "email": "Siwach1@gmail.com",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "name": "Sarvar",
+      "email": "Narwal@gmail.com",
+      "password": "12345",
+      "id": 6
+    },
+    {
+      "name": "Sarvar",
+      "email": "Narwal@gmail.com",
+      "password": "12345",
+      "id": 7
+    }
+  ],
+  "details": [
+    {
+      "details": "I am a bug",
+      "type": "bug",
+      "status": true,
+      "id": 1
+    },
+    {
+      "details": "I am a story",
+      "type": "story",
+      "status": true,
+      "id": 2
+    },
+    {
+      "details": "I am a sprint",
+      "type": "sprint",
+      "status": true,
+      "id": 3
+    }
+  ]
+}
