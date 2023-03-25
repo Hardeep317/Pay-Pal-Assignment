@@ -1,9 +1,25 @@
 import { Box } from '@chakra-ui/react'
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../ContextAPI/AuthContext';
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({userDetails, setUserDetails}) {
+
+  const navigate = useNavigate()
+  const {toggleContext} = useContext(AuthContext)
+
+  useEffect(() => {
+    console.log(JSON.parse(sessionStorage.getItem("userDetails")))
+    setUserDetails(JSON.parse(sessionStorage.getItem("userDetails")))
+  }, [])
+
+  function logoutUser() {
+    toggleContext(false)
+    sessionStorage.removeItem("userDetails")
+    setUserDetails(null)
+    navigate("/login")
+  }
 
   const listStyle = {
     listStyle:"none",
@@ -17,7 +33,12 @@ function Navbar() {
         <Box className='navItems'><ul>
             <Link style={listStyle} to="/"><li>Home</li></Link>
             <Link style={listStyle} to="/add-sprint"><li>Add Sprint</li></Link>
-            <Link to="/login"><li style={listStyle}>Login</li></Link>
+            {
+              userDetails ? 
+              <li onClick={logoutUser} style={listStyle}>Logout</li>
+              :
+              <Link to="/login" ><li style={listStyle}>Login</li></Link>
+            }
         </ul></Box>
     </Box>
   )

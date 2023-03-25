@@ -22,15 +22,20 @@ export default function SignUp() {
   }
 
   const handleLogin = () => {
-    fetch(`http://localhost:4000/users`,{
+    fetch(`https://paypal-second.onrender.com/register`,{
       method:"POST",
       body: JSON.stringify(user),
       headers:{
         "content-type": "application/json"
       }
-    }).then(() => {
+    }).then(res => res.json())
+    .then((res) => {
+      // console.log(res)
+      if(res.responseStatus === "SUCCESS") {
+        navigate("/login")
+      }
       setUser(initialData)
-    })
+    }).catch(err => console.log(err))
   }
 
   return (

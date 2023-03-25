@@ -1,12 +1,12 @@
 .container{
-    display: flex;
+    /* display: flex; */
     width: 95%;
     margin: auto;
     justify-content: space-between;
     /* align-items: center; */
     border: 2px solid grey;
     margin-top: 20px;
-    min-height: 60vh;
+    min-height: 80vh;
     padding: 10px;
     border-radius: 13px;
 }
@@ -14,7 +14,7 @@
 .bugContainer{
     background-color: red;
     color: white;
-    min-width: 30%;
+    min-height: 200px;
     border-radius: 13px;
     padding: 13px;
 }
@@ -22,7 +22,7 @@
 .sprintContainer{
     background-color: blue;
     color: white;
-    min-width: 30%;
+    min-height: 200px;
     border-radius: 13px;
     padding: 13px;
 }
@@ -30,7 +30,7 @@
 .storyContainer{
     background-color: green;
     color: white;
-    min-width: 30%;
+    min-height: 200px;
     border-radius: 13px;
     padding: 13px;
 }

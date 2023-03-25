@@ -2,24 +2,46 @@ import { Box, Button, FormControl, FormLabel, Image, Input, Stack, Text } from '
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useToast } from '@chakra-ui/react';
+import { AuthContext } from '../../ContextAPI/AuthContext';
 
-export default function Login() {
+export default function Login({userDetails, setUserDetails}) {
 
   const [data, setData] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {isAuth, toggleContext} = useContext(AuthContext)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
-    getUsers();
+    // getUsers();
   },[])
 
-  const getUsers = () => {
-    return fetch(`http://localhost:4000/users`)
+  const loginUsers = () => {
+    return fetch(`https://paypal-second.onrender.com/login`, {
+      method:"POST",
+      body : JSON.stringify({
+        email,
+        password
+      }),
+      headers : {
+        "Content-Type": "application/json"
+      }
+    })
      .then((res) => res.json())
-     .then((res) => setData(res))
+     .then((res) => {
+      // console.log(res)
+      toggleContext(true)
+      if(res.responseStatus === "SUCCESS") {
+        setUserDetails(res)
+        sessionStorage.setItem("userDetails", JSON.stringify(res))
+        navigate("/")
+      }
+     setData(res)
+     }).catch(err => console.log(err))
   }
 
-  console.log(data)
+  // console.log(data)
 
   const styles = {
     padding:"15px"
@@ -33,9 +55,9 @@ export default function Login() {
     setPassword(e.target.value);
   }
 
-  let checkUser = [];
   const handleLogin = () => {
-     checkUser = data.filter(user => user.email === email && user.password === password);
+    loginUsers()
+    //  checkUser = data.filter(user => user.email === email && user.password === password);
   }
   const toast = useToast();
   return (
@@ -56,19 +78,19 @@ export default function Login() {
             <Button mt="15px" onClick={handleLogin}>Submit</Button>
         </FormControl>
       {
-        checkUser.length === 0 ?  toast({
-          title: 'Incorrect Credentials',
-          description: "Incorrect Email or Password.",
-          status: 'error',
-          duration: 2000,
-          isClosable: true,
-        })
-        :  toast({
-          title: 'Successfully Logged In',
-          status: 'success',
-          duration: 2000,
-          isClosable: true,
-        })
+        // checkUser.length === 0 ?  toast({
+        //   title: 'Incorrect Credentials',
+        //   description: "Incorrect Email or Password.",
+        //   status: 'error',
+        //   duration: 2000,
+        //   isClosable: true,
+        // })
+        // :  toast({
+        //   title: 'Successfully Logged In',
+        //   status: 'success',
+        //   duration: 2000,
+        //   isClosable: true,
+        // })
       }
         <Text textAlign="left"><Link to="/signup">Create Account</Link> </Text>
       </Box>
